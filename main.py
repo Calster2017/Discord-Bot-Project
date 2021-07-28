@@ -1,6 +1,8 @@
 import discord
-
-TOKEN = 'ODY5OTYyMTE1ODI4NTU1ODU2.YQF1Ww.Of-numdMpdwCEdl91o-SYosWuRE'
+from dotenv import load_dotenv
+import os
+# Credentials
+load_dotenv('.env')
 
 client = discord.Client()
 
@@ -23,4 +25,4 @@ async def on_message(message):
   if message.content.startswith('!hello'):
     await message.channel.send('Hello!')
 
-client.run(TOKEN)
+client.run(os.getenv("BOT_TOKEN"))
